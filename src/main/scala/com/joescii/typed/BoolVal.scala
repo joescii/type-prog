@@ -3,7 +3,10 @@ package com.joescii.typed
 sealed trait BoolVal {
   def not:BoolVal
   def or(that:BoolVal):BoolVal
-//  def and(that:BoolVal) =
+  def and(that:BoolVal) =
+    (this.not or that.not).not
+  def imp(that:BoolVal) =
+    this.not or that
 }
 
 case object TrueVal extends BoolVal {

@@ -37,4 +37,22 @@ class BoolValSpecs extends WordSpec with ShouldMatchers {
       (TrueVal or TrueVal) should equal (TrueVal)
     }
   }
+
+  "BoolVal.and" should {
+    "satisfy the expected truth table" in {
+      (TrueVal and TrueVal) should equal (TrueVal)
+      (TrueVal and FalseVal) should equal (FalseVal)
+      (FalseVal and TrueVal) should equal (FalseVal)
+      (FalseVal and FalseVal) should equal (FalseVal)
+    }
+  }
+
+  "BoolVal.imp" should {
+    "satisfy the expected truth table" in {
+      (TrueVal imp TrueVal) should equal (TrueVal)
+      (TrueVal imp FalseVal) should equal (FalseVal)
+      (FalseVal imp TrueVal) should equal (TrueVal)
+      (FalseVal imp FalseVal) should equal (FalseVal)
+    }
+  }
 }
