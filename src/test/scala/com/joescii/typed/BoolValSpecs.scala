@@ -13,4 +13,28 @@ class BoolValSpecs extends WordSpec with ShouldMatchers {
     "equal itself" in { TrueVal should equal (TrueVal) }
     "not equal FalseVal" in { TrueVal should not equal (FalseVal) }
   }
+
+  "FalseVal.not" should {
+    "not equal FalseVal" in { (FalseVal.not) should not equal (FalseVal) }
+    "equal TrueVal" in { (FalseVal.not) should equal (TrueVal) }
+  }
+
+  "TrueVal.not" should {
+    "not equal TrueVal" in { (TrueVal.not) should not equal (TrueVal) }
+    "equal FalseVal" in { (TrueVal.not) should equal (FalseVal) }
+  }
+
+  "FalseVal.or" should {
+    "equal TrueVal when passed TrueVal" in
+      { (FalseVal or TrueVal) should equal (TrueVal) }
+    "equal FalseVal when passed FalseVal" in
+      { (FalseVal or FalseVal) should equal (FalseVal) }
+  }
+
+  "TrueVal.or" should {
+    "equal TrueVal" in {
+      (TrueVal or FalseVal) should equal (TrueVal)
+      (TrueVal or TrueVal) should equal (TrueVal)
+    }
+  }
 }
