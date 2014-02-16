@@ -15,6 +15,5 @@ case object TrueVal extends BoolVal {
 }
 case object FalseVal extends BoolVal {
   override val not = TrueVal
-  override def or(that:BoolVal) =
-    if(TrueVal == that) TrueVal else FalseVal
+  override def or(that:BoolVal) = that
 }

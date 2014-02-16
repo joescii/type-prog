@@ -52,7 +52,7 @@ class BoolValSpecs extends WordSpec with ShouldMatchers {
       (TrueVal imp TrueVal) should equal (TrueVal)
       (TrueVal imp FalseVal) should equal (FalseVal)
       (FalseVal imp TrueVal) should equal (TrueVal)
-      (FalseVal imp FalseVal) should equal (FalseVal)
+      (FalseVal imp FalseVal) should equal (TrueVal)
     }
   }
 }
