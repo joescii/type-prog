@@ -4,8 +4,8 @@ sealed trait BoolType {
   type Not <: BoolType
 }
 sealed trait TrueType extends BoolType {
-  type Not = FalseType
+  override type Not = FalseType
 }
 sealed trait FalseType extends BoolType {
-  type Not = TrueType
+  override type Not = TrueType
 }
