@@ -20,6 +20,6 @@ libraryDependencies ++= {
 }
 
 scalacOptions <<= scalaVersion map { v: String =>
-  "-deprecation" :: "-unchecked" :: "-feature" :: "-language:postfixOps" :: "-language:implicitConversions" :: Nil
+  "-deprecation" :: "-unchecked" :: "-feature" :: "-language:postfixOps" :: "-language:implicitConversions" :: "-language:higherKinds" :: Nil
 }
 

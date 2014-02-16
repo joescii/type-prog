@@ -7,4 +7,9 @@ object BoolTypeSpecs {
   implicitly[FalseType =:= FalseType]
   illTyped("implicitly[TrueType =:= FalseType]")
   illTyped("implicitly[FalseType =:= TrueType]")
+
+  implicitly[TrueType#Not =:= FalseType]
+  implicitly[FalseType#Not =:= TrueType]
+  illTyped("implicitly[TrueType#Not =:= TrueType]")
+  illTyped("implicitly[FalseType#Not =:= FalseType]")
 }
