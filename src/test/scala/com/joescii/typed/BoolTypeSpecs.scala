@@ -17,4 +17,14 @@ object BoolTypeSpecs {
   implicitly[TrueType#Or[FalseType] =:= TrueType]
   implicitly[FalseType#Or[TrueType] =:= TrueType]
   implicitly[FalseType#Or[FalseType] =:= FalseType]
+
+  implicitly[TrueType#And[TrueType] =:= TrueType]
+  implicitly[TrueType#And[FalseType] =:= FalseType]
+  implicitly[FalseType#And[TrueType] =:= FalseType]
+  implicitly[FalseType#And[FalseType] =:= FalseType]
+
+  implicitly[TrueType#Imp[TrueType] =:= TrueType]
+  implicitly[TrueType#Imp[FalseType] =:= FalseType]
+  implicitly[FalseType#Imp[TrueType] =:= TrueType]
+  implicitly[FalseType#Imp[FalseType] =:= TrueType]
 }
