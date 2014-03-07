@@ -10,10 +10,18 @@ class PeanoValSpecs extends WordSpec with ShouldMatchers {
   }
 
   "Val1 = ValN(Val0)" should {
-    "run" in { ValN(Val0) should not be (null) }
     val Val1 = ValN(Val0)
-    "not be less than or equal to Val0" in { (Val1 le Val0) should be (FalseVal) }
-    "be less than or equal to itself" in { (Val1 le Val1) should be (TrueVal) }
-    "be less than or equal to ValN(ValN(Val0))" in { (Val1 le ValN(Val1)) should be (TrueVal) }
+    "not be less than or equal to Val0" in {
+      (Val1 le Val0) should be (FalseVal)
+      (Val0 le Val1) should be (TrueVal)
+    }
+    "be less than or equal to itself" in {
+      (Val1 le Val1) should be (TrueVal)
+    }
+    "be less than or equal to ValN(ValN(Val0))" in {
+      (Val1 le ValN(Val1)) should be (TrueVal)
+      (ValN(Val1) le Val1) should be (FalseVal)
+    }
+
   }
 }
