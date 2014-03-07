@@ -3,25 +3,12 @@ package com.joescii.typed
 import org.scalatest._
 import matchers.ShouldMatchers
 
-class PeanoValSpecs extends WordSpec with ShouldMatchers {
-  "Val0" should {
-    "be less than or equal to itself" in { (Val0 le Val0 ) should be (TrueVal) }
-    "be less than or equal to ValN(Val0)" in { (Val0.le(ValN(Val0))) should be (TrueVal) }
-  }
+class PeanoValSpecs extends FlatSpec with ShouldMatchers {
+  val Val1 = ValN(Val0)
+  val Val2 = ValN(Val1)
 
-  "Val1 = ValN(Val0)" should {
-    val Val1 = ValN(Val0)
-    "not be less than or equal to Val0" in {
-      (Val1 le Val0) should be (FalseVal)
-      (Val0 le Val1) should be (TrueVal)
-    }
-    "be less than or equal to itself" in {
-      (Val1 le Val1) should be (TrueVal)
-    }
-    "be less than or equal to ValN(ValN(Val0))" in {
-      (Val1 le ValN(Val1)) should be (TrueVal)
-      (ValN(Val1) le Val1) should be (FalseVal)
-    }
-
-  }
+  "0 + 0" should "equal 0" in { Val0 add Val0 should equal (Val0) }
+  "0 + 1" should "equal 1" in { Val0 add Val1 should equal (Val1) }
+  "1 + 0" should "equal 1" in { Val1 add Val0 should equal (Val1) }
+  "1 + 1" should "equal 2" in { Val1 add Val1 should equal (Val2) }
 }

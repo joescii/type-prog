@@ -1,12 +1,12 @@
 package com.joescii.typed
 
 sealed trait PeanoVal {
-  def le(that:PeanoVal):BoolVal
+  def add(that:PeanoVal):PeanoVal
 }
 
 case object Val0 extends PeanoVal {
-  override def le(that:PeanoVal) = TrueVal
+  override def add(that:PeanoVal) = that
 }
 case class ValN(prev:PeanoVal) extends PeanoVal {
-  override def le(that:PeanoVal) = (ValN(that) le prev).not
+  override def add(that:PeanoVal) = ValN(prev add that)
 }
