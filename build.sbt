@@ -23,3 +23,4 @@ scalacOptions <<= scalaVersion map { v: String =>
   "-deprecation" :: "-unchecked" :: "-feature" :: "-language:postfixOps" :: "-language:implicitConversions" :: "-language:higherKinds" :: Nil
 }
 
+parallelExecution in Test := false
