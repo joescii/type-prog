@@ -9,7 +9,7 @@ sealed trait UnsafeIntList { self =>
 case object UnsafeIntNil extends UnsafeIntList { self =>
   override def +(other:UnsafeIntList) = {
     require(other == UnsafeIntNil, "argument 'other' must be the UnsafeIntNil object")
-    self:UnsafeIntList
+    self
   }
   override val size = 0
 }
