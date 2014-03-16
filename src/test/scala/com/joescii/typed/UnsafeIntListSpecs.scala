@@ -4,12 +4,6 @@ import org.scalatest._
 import matchers.ShouldMatchers
 
 class UnsafeIntListSpecs extends FlatSpec with ShouldMatchers {
-//  illTyped("val nil:IntNil = 1 :: IntNil")
-//  illTyped("(1 :: IntNil) + IntNil")
-//  illTyped("(1 :: 2 :: IntNil) + IntNil")
-//  illTyped("(1 :: 2 :: IntNil) + (3 :: IntNil)")
-//  illTyped("IntNil + (3 :: IntNil)")
-
   "The UnsafeIntNil" should "equal itself under addition" in {
     val sum = UnsafeIntNil + UnsafeIntNil
     sum should equal (UnsafeIntNil)
