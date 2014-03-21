@@ -25,4 +25,29 @@ class IntListSpecs extends FlatSpec with ShouldMatchers {
     val sum = (1 :: 2 :: IntNil) + (3 :: 4 :: IntNil)
     sum should equal (4 :: 6 :: IntNil)
   }
+
+  "The IntNil" should "equal itself under ++" in {
+    val list = IntNil ++ IntNil
+    list should equal (IntNil)
+  }
+
+  "1 :: IntNil ++ IntNil" should "equal 1 :: IntNil" in {
+    val list = (1 :: IntNil) ++ IntNil
+    list should equal(1 :: IntNil)
+  }
+
+  "1 :: IntNil ++ 2 :: IntNil" should "equal 1 :: 2 :: IntNil" in {
+    val list = (1 :: IntNil) ++ (2 :: IntNil)
+    list should equal (1 :: 2 :: IntNil)
+  }
+
+  "1 :: 2 :: IntNil ++ 3 :: 4 :: IntNil" should "equal 1 :: 2 :: 3 :: 4 :: IntNil" in {
+    val list = (1 :: 2 :: IntNil) ++ (3 :: 4 :: IntNil)
+    list should equal (1 :: 2 :: 3 :: 4 :: IntNil)
+  }
+
+  "(1 :: 2 :: IntNil ++ 3 :: IntNil) + (4 :: 5 :: 6 :: IntNil)" should "equal 5 :: 7 :: 9 :: IntNil" in {
+    val sum = ((1 :: 2 :: IntNil) ++ (3 :: IntNil)) + (4 :: 5 :: 6 :: IntNil)
+    sum should equal (5 :: 7 :: 9 :: IntNil)
+  }
 }
