@@ -1,11 +1,11 @@
 package com.joescii.typed
 
 sealed trait SizeType {
-  type add[That <: SizeType] <: SizeType
+  type plus[That <: SizeType] <: SizeType
 }
 sealed trait Size0 extends SizeType {
-  override type add[That <: SizeType] = That
+  override type plus[That <: SizeType] = That
 }
 sealed trait SizeN[Prev <: SizeType] extends SizeType {
-  override type add[That <: SizeType] = SizeN[Prev#add[That]]
+  override type plus[That <: SizeType] = SizeN[Prev#plus[That]]
 }

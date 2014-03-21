@@ -10,7 +10,7 @@ object SizeTypeSpecs {
   implicitly[Size0 =:= Size0]
   illTyped("implicitly[Type0 =:= Type1]")
 
-  implicitly[Size0#add[Type1] =:= Type1]
-  implicitly[Type1#add[Type1] =:= Type2]
-  implicitly[Type1#add[Type2] =:= Type3]
+  implicitly[Size0#plus[Type1] =:= Type1]
+  implicitly[Type1#plus[Type1] =:= Type2]
+  implicitly[Type1#plus[Type2] =:= Type3]
 }

@@ -3,7 +3,7 @@ package com.joescii.typed
 sealed trait IntList[Size <: SizeType] { self =>
   def ::(head:Int):IntList[SizeN[Size]] = IntListImpl(head, self)
   def +(other:IntList[Size]):IntList[Size]
-  def ++[OtherSize <: SizeType](other:IntList[OtherSize]):IntList[Size#add[OtherSize]]
+  def ++[OtherSize <: SizeType](other:IntList[OtherSize]):IntList[Size#plus[OtherSize]]
   def size:Int
 }
 
