@@ -12,8 +12,8 @@ case object IntNil extends IntList[Size0] {
   override val size = 0
   override def ++[ThatSize <: SizeType](that:IntList[ThatSize]) = that
 }
-private[typed] case class IntListImpl[SizeTail <: SizeType](head:Int, tail:IntList[SizeTail]) extends IntList[SizeN[SizeTail]] { 
-  private type Size = SizeN[SizeTail] // defined for clarity
+private[typed] case class IntListImpl[TailSize <: SizeType](head:Int, tail:IntList[TailSize]) extends IntList[SizeN[TailSize]] { 
+  private type Size = SizeN[TailSize] // defined for clarity
   override def +(that:IntList[Size]) = that match {
     case IntListImpl(h, t) => (head + h) :: (tail + t)
   }
